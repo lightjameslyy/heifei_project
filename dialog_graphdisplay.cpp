@@ -18,17 +18,52 @@ Dialog_GraphDisplay::~Dialog_GraphDisplay()
 
 void Dialog_GraphDisplay::on_buttonBox_accepted()
 {
-    if (ui->checkBox->isChecked() == true)
+    //mmpldata
+
+    if (ui->radioButton->isChecked())
     {
         MainWindow *ptr = (MainWindow*)parentWidget();
-//        ptr->draw("C:/lightjames/HPC_group/hefei_client/data_fomat&software_illustration/data/mmpldata/20150624_1_tunnel");
-
-        ptr->draw("/Users/lightjames/HPC_group/hefei_client/data_fomat&software_illustration/data/mmpldata/20150624_1_tunnel");
+        qDebug()<<"init ptr"<<ptr->getDrawn(0);
+        ptr->draw("C:/workspace/qt/hefei_project-master/test_data/mmpldata/20150624_1tunnel", ColorMap::PMPL);
+        qDebug()<<"after draw"<<ptr->getDrawn(0);
+        ui->radioButton->setChecked(false);
+    }
+    //ccloudtxt
+    if (ui->radioButton_2->isChecked())
+    {
+        MainWindow *ptr = (MainWindow*)parentWidget();
+        ptr->draw("C:/workspace/qt/hefei_project-master/test_data/ccloudtxt", ColorMap::CLH);
+        ui->radioButton_2->setChecked(false);
+    }
+    //eext
+    if (ui->radioButton_3->isChecked())
+    {
+        MainWindow *ptr = (MainWindow*)parentWidget();
+        ptr->draw("C:/workspace/qt/hefei_project-master/test_data/eext/20150929", ColorMap::EXT);
+        ui->radioButton_3->setChecked(false);
+    }
+    //llaytxt
+    if (ui->radioButton_4->isChecked())
+    {
+        MainWindow *ptr = (MainWindow*)parentWidget();
+        ptr->draw("C:/workspace/qt/hefei_project-master/test_data/llaytxt", ColorMap::LAYER);
+        ui->radioButton_4->setChecked(false);
+    }
+    //ppm10
+    if (ui->radioButton_5->isChecked())
+    {
+        MainWindow *ptr = (MainWindow*)parentWidget();
+        ptr->draw("C:/workspace/qt/hefei_project-master/test_data/ppm10/20150929", ColorMap::UGM3);
+        ui->radioButton_5->setChecked(false);
+    }
+    //ppr
+    if (ui->radioButton_6->isChecked())
+    {
+        MainWindow *ptr = (MainWindow*)parentWidget();
+        ptr->draw("C:/workspace/qt/hefei_project-master/test_data/ppr/20150929", ColorMap::PMPLR);
+        ui->radioButton_6->setChecked(false);
     }
 
-//    MapWindow* mw = new MapWindow();
-//    mw->plot();
-//    mw->show();
 }
 
 void Dialog_GraphDisplay::on_buttonBox_rejected()
